@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 0;
+            background-color: grey;
+            background-size: cover;
+        }
+        .login-box {
+            width: 280px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+        .user-box {
+            float: left;
+            font-size: 40px;
+            border-bottom: 6px solid orange;
+            margin-bottom: 50px;
+            padding: 13px 0;
+        }
+        .login {
+            width: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            padding: 8px 0;
+            margin: 8px 0;
+            border-bottom: 1px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="user-box">
+            <span>Username :</span>
+        </div>
+
+        <div class="login">
+            <input type="text" name="username" id="username">
+            <input type="password" name="password" id="password">
+            <button type="button" onclick="OnClick()">Submit</button>
+        </div>
+    </div>
+    <script>
+        let dataSession = JSON.parse(sessionStorage.getItem('login-data'))
+        if( dataSession != null ) {
+            console.log(dataSession)
+            window.location.href = '/'
+        }
+
+
+        let OnClick = () => {
+            let dataUsername = document.getElementById('username').value
+            let dataPassword = document.getElementById('password').value
+            console.log('login button has clicked')
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("username", dataUsername);
+            urlencoded.append("password", dataPassword);
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+            };
+
+            fetch("http://localhost:5000/login", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                sessionStorage.setItem('login-data', JSON.stringify(result))
+                window.location.href = '/'
+            })
+            .catch(error => console.log('error', error));
+        }
+    </script>
+</body>
+</html>

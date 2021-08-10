@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BINAR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+li, a, button {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10
+}
+
+.nav-link {
+    list-style: none;
+}
+
+.nav-link li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav-link li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav-link li a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: blue;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgba(rgb(3, 154, 192));
+}
+</style>
+</head>
+<body>
+    <header class="nav-bar">
+        <img class="logo">
+        <nav>
+            <ul class="nav-link">
+                <li><a href="#"></a>HOME</li>
+                <li><a href="#"></a>WORK</li>
+                <li><a href="#"></a>CONTACT</li>
+                <li><a href="#"></a>ABOUT ME</li>
+            </ul>
+        </nav>
+        <a class="cta" href="http://localhost:5000/login"><button>SIGN UP</button></a>
+        <a class="cta" href="http://localhost:5000/login"><button>LOG IN</button></a>
+    </header>
+    <script>
+        /*function Login()
+        {
+            var a = newArray();
+            up1 = new Object();
+            up2 = new Object();
+
+            up1={
+                name: 'abcd@gmail.com',
+                paswword:btoa('abc@12')
+            };
+            up2={
+                name: 'bcd@gmail.com',
+                password:btoa('bcd@12')
+            };
+
+            a.push(up1)
+            a.push(up2)
+        }*/
+
+
+
+        /*fetch('http://localhost:5000/login')
+        .then(response => response.json())
+        .then(result => {
+            if ( result != null ) {
+                const date = new Date();
+                data.setTime(data.getTime() + (exdays*24*60*60*1000))
+                let expires = "expires="+ d.toUTCString();
+                document.cookie = loginData + "=" + result + ";" + expires + ";path=/";
+            }else {
+                console.log('null')
+            }
+        })*/
+
+
+
+
+
+
+
+
+        /*fetch('http://localhost:5000/login')
+        .then(response => response.json())
+        .then(result => {
+            if ( result != null ) {
+                //save data login to session storage
+                sessionStorage.setItem("loginData", JSON.stringify(result));
+            } else {
+                console.log('null')
+            }
+        })
+
+        // get data login from session storage
+        setTimeout(() =>{
+            let CheckDataSession = sessionStorage.getItem("loginData")
+            if ( CheckDataSession ==null ) {
+                window.location.href = '/'
+            }
+        },100)
+        
+        setTimeout(() =>{
+            let CheckDataSession = sessionStorage.getItem("loginData")
+            if ( CheckDataSession ==null ) {
+                console.log("no data login session here")
+            } else {
+                let dataSession = JSON.parse(sessionStorage.getItem("loginData"))
+                console.log(dataSession)
+
+                let userBoxNav = document.querySelector(".nav-bar .cta")
+                userBoxNav.innerHTML = `
+                    <div class="wrapper-userdata">
+                        `+ dataSession.username +`
+                    </div>
+                `;
+            }
+        }, 100)
+        
+        
+        
+        
+
+
+        
+        
+        /*function setCookie(name,value,exp_days) {
+            var d =new date();
+            d.setTime(d.getTime() + (exp_days*24*60*60*1000));
+            var expires = "expires=" + value + ";" + expires + ";path=/"
+        }
+
+        function getCookie(name) {
+            var cname = name + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i=0; i< ca.length; i++) {
+                var c =ca[i];
+                while(c.charAt(0) == ' '){
+                    c=c.substring(1);
+                }
+                if(c.indexOf(cname) == 0){
+                    return c.substring(cname.length, c.length)
+                }
+            }
+            return "";
+        }
+
+        function deleteCookie(name) {
+            var d = new Date();
+            d.setTime(d.getTime() - (60*60*1000));
+            var expires = "expires" + d.toGMTString();
+            document.cookie = name + "=;" + expires + ";path=/";
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            if(user !=""){
+                alert("welcome again" + user);
+            }
+        }*/
+    </script>
+</body>
+</html>
